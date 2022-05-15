@@ -28,3 +28,16 @@ def testSimpleDiscounts():
 
     book_list = [0, 1, 2, 3, 4]
     assert price(book_list) == 8*5 * 0.75
+
+def testSeveralDiscounts():
+    book_list = [0, 0, 1]
+    assert price(book_list) == 8 + (8 * 2 * 0.95)
+
+    book_list = [0, 0, 1, 1]
+    assert price(book_list) == 2 * (8 * 2 * 0.95)
+
+    book_list = [0, 0, 1, 2, 2, 3]
+    assert price(book_list) == (8 * 4 * 0.8) + (8 * 2 * 0.95)
+
+    book_list = [0, 1, 1, 2, 3, 4]
+    assert price(book_list) == 8 + (8 * 5 * 0.75)
